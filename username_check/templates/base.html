@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Username Check Exercise</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}"/>
+</head>
+<body>
+
+  <nav>
+    <a href="{{url_for('index')}}" id ='nav'> Home </a>
+  </nav>
+  <h2 id='text'>Flask Username Check Exercise</h2>
+  {%if filled==False %}
+  <p id='condition'>Username cannot be empty </p>
+  {%else%}
+
+  {%endif%}
+  <form action='{{url_for("check")}}'>
+    <label for='user' id='nav'>Username: </label>
+    <input type="text" name='user' placeholder='enter a username'>
+    <ul id='condition'>
+    <li >Username must have a capital letter</li>
+    <li >Username must have a small letter</li>
+    <li >Username must contain with a number</li>
+  </ul>
+    <br>
+    <br>
+    <input type="submit"  value="Submit" id='nav'>
+  </form>
+  <ul>
+  {%if not contains_lower%}
+  <li id='condition'>Username does not contain a small letter </li>
+  {%endif%}
+  {%if not contains_upper%}
+  <li id='condition'>Username does not contain a capital letter </li>
+  {%endif%}
+  {%if not contain_num%}
+  <li id='condition'>Username does not contain a number </li>
+  {%endif%}
+
+</ul>
+{%if contain_num and contains_lower and contains_upper and not home%}
+<p id='text'>Username accepted</p>
+{%endif%}
+</body>
+</html>
