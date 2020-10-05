@@ -1,0 +1,11 @@
+<html>
+<body>
+  <h1> You just signed up for this awesome website dude!</h1>
+  <p>
+    Your username : {{session['name']}}<br>
+    Your pets : {%for i in session['pets']%}{%print(i+' ')%}{%endfor%}<br>
+    Your gender: {{session['gender']}}<br>
+  </p>
+
+</body>
+</html>
