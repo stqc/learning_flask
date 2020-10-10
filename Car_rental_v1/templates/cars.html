@@ -1,0 +1,22 @@
+.<!DOCTYPE HTML>
+<html>
+<body>
+  <h2> Book a Cab </h2>
+  <nav>
+    <a href={{url_for("index")}}>Home</a>
+    <a href={{url_for("post_car")}}>Post your car</a>
+    <a href={{url_for("rentcar")}}>Rent Car</a>
+    <a href={{url_for("ride_end")}}>End Ride</a>
+
+  </nav>
+  <h2> Post your car here </h2>
+  <br>
+  <form method="POST">
+    {{form.hidden_tag()}}
+    {{form.name.label}} {{form.name()}}
+    <br>{{form.car_num.label}} {{form.car_num()}}
+    <br>{{form.car_model.label}} {{form.car_model()}}
+    <br>{{form.submit()}}
+  </form>
+</body>
+</html>

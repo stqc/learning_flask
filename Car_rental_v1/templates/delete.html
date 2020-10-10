@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h2> Book a Cab </h2>
+  <nav>
+    <a href={{url_for("index")}}>Home</a>
+    <a href={{url_for("post_car")}}>Post your car</a>
+    <a href={{url_for("rentcar")}}>Rent Car</a>
+    <a href={{url_for("ride_end")}}>End Ride</a>
+  </nav>
+  <h2> Ride update </h2>
+  <br>
+  Ride from {{session['s']}} to {{session['d']}} ended.
+</body>
+</html>

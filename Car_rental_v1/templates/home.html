@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h2> Book a Cab </h2>
+  <nav>
+    <a href={{url_for("index")}}>Home</a>
+    <a href={{url_for("post_car")}}>Post your car</a>
+    <a href={{url_for("rentcar")}}>Rent Car</a>
+    <a href={{url_for("ride_end")}}>End Ride</a>
+  </nav>
+  <p><h3>Hello and welcome to Book a Cab!<br>
+     Virtual cab booking test<br>
+     Available worldwide!</h3>
+     You can also offer your car as cab
+   </p>
+   <br>
+   Below is a list of all the cabs currently Available: <br>
+{%if not cars_available %}
+<h2> Oops we currently have no cars with us!</h2>
+{%else%}
+{%for car in cars_available%}
+<ul>
+  <li> {{car}}</li>
+</ul>
+{%endfor%}
+{%endif%}
