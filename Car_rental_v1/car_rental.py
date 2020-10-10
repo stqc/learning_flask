@@ -35,9 +35,7 @@ class car(db.Model):
             return f'{self.name} is booked for {self.ride.destination}'
         else:
             return f'{self.name} is avaialable'
-    def get_cars(self):
-        if not self.booked:
-                return self.id
+    
 
 class Ride(db.Model):
     __tablename__ ='rides'
