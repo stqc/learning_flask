@@ -7,15 +7,11 @@
     <a href={{url_for("post_car")}}>Post your car</a>
     <a href={{url_for("rentcar")}}>Rent Car</a>
     <a href={{url_for("ride_end")}}>End Ride</a>
+    <a href={{url_for("rm_car")}}>Remove Car</a>
   </nav>
-  <h2> Ride update </h2>
+  <h2> Remove Car </h2>
   <br>
-  <form method="POST">
-
-    <label for="car">Enter Car Number:<br></label>
-    <input type='text' name='car'><br><br>
-    <br>
-    <input type="submit" value="End Ride" method="POST">
-  </form>
+  
+  Car named<strong> {{session['removed']}}</strong> owned by <strong>{{session['owner']}}</strong> has been removed from the listing
 </body>
 </html>
