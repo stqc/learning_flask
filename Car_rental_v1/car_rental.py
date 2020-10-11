@@ -35,7 +35,9 @@ class car(db.Model):
             return f'{self.name} is booked for {self.ride.destination}'
         else:
             return f'{self.name} is avaialable'
-    
+    def get_cars(self):
+        if not self.booked:
+                return self.id
 
 class Ride(db.Model):
     __tablename__ ='rides'
@@ -98,6 +100,26 @@ def ride_end():
 
     return render_template('endride.html')
 
+@app.route('/remove_car', methods=['GET','POST'])
+def rm_car():
+    if request.method == 'POST':
+        busy = False
+        try:
+            to_remove = request.form['car']
+            ride = car.query.filter_by(id=to_remove).first()
+            session['removed'] = ride.name
+            session['owner'] = ride.owner
+            if ride.booked:
+                busy = True
+                return render_template('remove_car.html',busy=busy)
+            else:
+                busy = False
+                db.session.delete(ride)
+                db.session.commit()
+            return render_template('del_car.html')
+        except :
+            pass
+    return render_template('remove_car.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
