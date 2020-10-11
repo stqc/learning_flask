@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h2> Book a Cab </h2>
+  <nav>
+    <a href={{url_for("index")}}>Home</a>
+    <a href={{url_for("post_car")}}>Post your car</a>
+    <a href={{url_for("rentcar")}}>Rent Car</a>
+    <a href={{url_for("ride_end")}}>End Ride</a>
+    <a href={{url_for("rm_car")}}>Remove Car</a>
+  </nav>
+  <h2> Remove Car </h2>
+  <br>
+  
+  Car named<strong> {{session['removed']}}</strong> owned by <strong>{{session['owner']}}</strong> has been removed from the listing
+</body>
+</html>
