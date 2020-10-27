@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block content%}
+Welcome to my blog<br><br>
+{%if not ps%}
+no posts yet
+{%else%}
+{%for title in ps%}
+<a href='{{url_for('read_post',post_title=title.Title)}}'>{{title.Title}}
+<sub>{{title.author_name}}</sub></a><br><br>
+{%endfor%}
+{%endif%}
+{%endblock%}

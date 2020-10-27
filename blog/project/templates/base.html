@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <a href='{{url_for('home')}}'>Home</a>
+      {%if current_user.is_authenticated%}
+      <a href='{{url_for('dash',username=session["current_user"])}}'> Dashboard</a >
+      <a href='{{url_for('write_post')}}'>Write a New Post</a>
+      <a href ='{{url_for('logout')}}'> Logout </a>
+
+      {%else%}
+      <a href="{{url_for('login')}}">Login</a>
+      <a href="{{url_for('signup')}}">Sign up</a>
+      {%endif%}
+      <br><br>
+  {%block content%}
+  {%endblock%}
+  </body>
+</html>

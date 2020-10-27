@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block content%}
+Name: {{usr.username}}<br>
+email: {{usr.email}}<br>
+Posts by {{usr.username}}<br>
+<ol>
+{%for title in pst%}
+<li><a href="{{url_for('read_post',post_title=title.Title)}}">{{title.Title}}</a>
+
+{%endfor%}
+</ol>
+{%endblock%}

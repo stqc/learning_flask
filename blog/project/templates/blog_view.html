@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{% block content %}
+<h1> {{le_post.Title}}</h1><br
+<h3> By {{le_post.author_name}}</h3>
+<br>
+{{le_post.content}}
+<br>
+{%if le_post.author_name == session['current_user']%}
+<a href='{{url_for('delete_post',post_title=le_post.Title)}}'> Delete Post</a>
+ <a href='{{url_for('update_post',post_title=le_post.Title)}}'> Update Post</a>
+{%endif%}
+{%endblock%}
