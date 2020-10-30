@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{% block content %}
+<h1 style='text-align:center; line-height:5px'> {{le_post.Title}}</h1>
+<h3 style='text-align:center; line-height:5px'>  By {{le_post.author_name}}</h3>
+<h4 style='text-align:center; line-height:5px'> {{le_post.date.date().strftime("%d %b %Y")}}</h4>
+<br>
+{{le_post.content}}
+
+<br>
+<br>
+{%if le_post.author_name == session['current_user']%}
+
+<a href='{{url_for('delete_post',post_title=le_post.Title)}}'> Delete Post</a>
+ <a href='{{url_for('update_post',post_title=le_post.Title)}}'> Update Post </a>
+{%endif%}
+{%endblock%}
