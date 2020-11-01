@@ -1,13 +1,9 @@
-from flask import Flask, render_template,request
-from flask_sqlalchemy import  SQLAlchemy
-from flask_wtf import FlaskForm
-from flask_wtf.file import FileField,FileAllowed
-from wtforms import SubmitField
-from flask_migrate import Migrate
+#import the db object from __init__
 from project import db
-class data(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    photo = db.Column(db.String)
+
+class data(db.Model):#table named data
+    id = db.Column(db.Integer,primary_key=True)#id is the primary key
+    photo = db.Column(db.String)#photo column to store names of the photos
 
     def __init__(self,photo):
         self.photo = photo
